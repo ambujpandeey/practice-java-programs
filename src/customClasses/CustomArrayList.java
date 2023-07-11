@@ -1,52 +1,94 @@
 package customClasses;
 
-import java.util.Scanner;
 
-public class CustomArrayList {
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-	static int size = 4;
-	static int array[] = new int[size];
-	static int addedNo = 0;
-	static int index = -1;
+public class CustomArrayList<T> implements Iterable<T> {
+    private static final int DEFAULT_CAPACITY = 10;
+    private Object[] elements;
+    private int size;
 
-	// we need to increase array size by Arrays.copy() method
-	public static void main(String[] args) {
+    public CustomArrayList() {
+        this.elements = new Object[DEFAULT_CAPACITY];
+        this.size = 0;
+    }
 
-		CustomArrayList list = new CustomArrayList();
+    public void add(T element) {
+        if (size == elements.length) {
+            expandCapacity();
+        }
+        elements[size] = element;
+        size++;
+    }
 
-		for (int i = 0; i < 10; i++) {
-			Scanner scanner = new Scanner(System.in);
-			System.out.println("Enter some number..");
-			int nextInt = scanner.nextInt();
+    public T get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+        return (T) elements[index];
+    }
 
-			list.add(nextInt);
-		}
+    public int size() {
+        return size;
+    }
 
-		for (int no : array) {
-			System.out.println(no);
-		}
-	}
+    private void expandCapacity() {
+        int newCapacity = elements.length * 2;
+        Object[] newElements = new Object[newCapacity];
+        System.arraycopy(elements, 0, newElements, 0, size);
+        elements = newElements;
+    }
 
-	public static void add(int no) {
-		if (index == -1) {
-			index = 0;
-			array[index] = no;
-			addedNo++;
-		} else {
+    @Override
+    public Iterator<T> iterator() {
+        return new CustomArrayListIterator();
+    }
 
-			if (addedNo == size / 2) {
-				size = size * 2;
-			}
+    private class CustomArrayListIterator implements Iterator<T> {
+        private int currentIndex = 0;
 
-			array[++index] = no;
-			addedNo++;
-		}
-	}
+        @Override
+        public boolean hasNext() {
+            return currentIndex < size;
+        }
 
-	@Override
-	public String toString() {
-		return "CustomArrayList [getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
-	}
+        @Override
+        public T next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            return get(currentIndex++);
+        }
+    }
 
+    public static void main(String[] args) {
+        CustomArrayList<String> myList = new CustomArrayList<>();
+        myList.add("Apple");
+        myList.add("Banana");
+        myList.add("Orange");
+		myList.add("2");
+		myList.add("44");
+		myList.add("56576");
+		myList.add("Or8989ange");
+		myList.add("0909");
+		myList.add("-086");
+		myList.add("56564");
+		myList.add("32434");
+		myList.add("vcvcb");
+		myList.add("fgbfgf");
+		myList.add("ghgjhkj");
+		myList.add("jlk;lkjkhjghg");
+		myList.add("fgjhklhj");
+		myList.add("ghkjmhjh");
+
+        System.out.println("Size: " + myList.size()); // Output: Size: 3
+
+        // Iterating over the elements using for-each loop
+        for (String element : myList) {
+            System.out.println(element);
+        }
+    }
 }
+
+
