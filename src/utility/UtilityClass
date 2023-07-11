@@ -1,0 +1,25 @@
+The Collections utility class consists exclusively of static methods that operate on or return collections. 
+It contains polymorphic algorithms that operate on collections, "wrappers", which return a new collection backed by a specified collection,
+
+Some useful method in Collections class:
+
+Method Signature	Description
+Collections.sort(List myList)	
+	->	Sort the myList (implementation of any List interface) provided an argument in natural ordering.
+Collections.sort(List, comparator c)	
+	->  Sort the myList(implementation of any List interface) as per comparator c ordering (c class should implement comparator interface)
+Collections.shuffle(List myList)	
+	->  Puts the elements of myList ((implementation of any List interface)in random order
+Collections.reverse(List myList)	
+	->  Reverses the elements of myList ((implementation of any List interface)
+Collections.binarySearch(List mlist, T key)	
+	->  Searches the mlist (implementation of any List interface) for the specified object using the binary search algorithm.
+Collections.copy(List dest, List src)	
+	->  Copy the source List into dest List.
+Collections.frequency(Collection c, Object o)	
+	->  Returns the number of elements in the specified collection class c (which implements Collection interface can be List, 
+	    Set or Queue) equal to the specified object
+Collections.synchronizedCollection(Collection c)	
+	->  Returns a synchronized (thread-safe) collection backed by the specified collection
+	
+	
