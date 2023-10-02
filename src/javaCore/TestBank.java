@@ -4,7 +4,9 @@ abstract class Bank{
 	public Bank() {
 		System.out.println("Rate of Interested Applying...");
 	}
+	
 	abstract int getRateOfInterest();
+	
 	void exceptionRate() {
 		System.out.println("RBI must be takecare of All Bank Interest Rate");
 	}

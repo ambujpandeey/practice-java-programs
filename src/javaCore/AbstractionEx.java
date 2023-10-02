@@ -3,7 +3,8 @@ package javaCore;
 abstract class B {	
 	abstract void calculation();
 }
-public class A extends B{
+
+public class AbstractionEx extends B{
 		
 	@Override
 	void calculation() {
@@ -16,7 +17,7 @@ public class A extends B{
 	}
 	
 	public static void main(String[] args) {
-		B b1 = new A();
+		B b1 = new AbstractionEx();
 		b1.calculation();
 		System.out.println("Calculation Done");
 	}

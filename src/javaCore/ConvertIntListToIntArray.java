@@ -11,24 +11,26 @@ import java.util.Set;
 import java.util.TreeSet;
 
 // Main class
-class GFG {
+class ConvertIntListToIntArray {
 
 	// Main driver method
 	public static void main(String[] args) {
 		List<Integer> list = Arrays.asList(1, 3, 5, 7, 9, 34, 345, 56, 7, 2222);
 
-//		int[] array = list.stream().mapToInt(i->i).toArray();
-////		int[] array = list.stream().mapToInt(Integer::intValue).toArray();
-//		
-//		System.out.println(Arrays.toString(array));
-
+		int[] array = list.stream().mapToInt(i->i).toArray();
+		int[] array2 = list.stream().mapToInt(Integer::intValue).toArray();
+		
+		System.out.println(Arrays.toString(array));
+		System.out.println("---------------------------------------------");
+		System.out.println(Arrays.toString(array2));
+		System.out.println("---------------------------------------------");
 		Set<Integer> mySet = new HashSet<Integer>(list);
 
 		Set<Integer> mySet1 = new TreeSet<>(list);
 //		mySet1.addAll(list);
 
 		System.out.println(mySet);
-		System.out.println("-----------------------------");
+		System.out.println("---------------------------------------------");
 		System.out.println(mySet1);
 
 	}

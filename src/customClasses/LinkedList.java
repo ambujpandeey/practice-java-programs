@@ -1,6 +1,6 @@
 package customClasses;
 
- class Node {
+class Node {
 	int data;
 	Node next;
 
@@ -11,7 +11,7 @@ package customClasses;
 }
 
 public class LinkedList {
-	private Node head;
+	private Node head; // assumed
 
 	public LinkedList() {
 		this.head = null;
@@ -21,16 +21,77 @@ public class LinkedList {
 		return head == null;
 	}
 
+	/*
+	 * 
+	 * The append(int data) method is responsible for adding a new node with the
+	 * given data at the end of the linked list. Here's a detailed explanation of
+	 * how it works:
+	 * 
+	 * It starts by creating a new node using the Node class. The data parameter
+	 * passed to the method is assigned to the data field of the new node. The next
+	 * field is set to null since the new node will be added at the end of the list.
+	 * 
+	 * The method then checks if the linked list is empty by calling the isEmpty()
+	 * method. If the list is empty, it means there are no existing nodes, so the
+	 * head of the list is assigned to the new node, making it the first and only
+	 * node in the list.
+	 * 
+	 * If the list is not empty, it means there are existing nodes. In this case, a
+	 * reference to the head node is stored in the current variable for traversing
+	 * the list.
+	 * 
+	 * A while loop is used to iterate through the list until the last node is
+	 * reached. The loop condition checks if the next field of the current node is
+	 * null, indicating that it is the last node in the list.
+	 * 
+	 * Inside the loop, the current reference is updated to the next node in each
+	 * iteration, moving towards the end of the list.
+	 * 
+	 * Once the last node is reached, the next field of that node is assigned to the
+	 * new node created in step 1. This effectively adds the new node at the end of
+	 * the list.
+	 * 
+	 * The method ends after appending the new node to the list.
+	 * 
+	 * To summarize, the append() method adds a new node with the given data at the
+	 * end of the linked list. If the list is empty, the new node becomes the head.
+	 * If the list is not empty, the method traverses the list to find the last node
+	 * and adds the new node after it.
+	 * 
+	 */
+
 	public void append(int data) {
-		Node newNode = new Node(data);
+		Node newNode = new Node(data);// The next field is set to null since the new node will be added at the end of
+										// the list.
 		if (isEmpty()) {
+			/*
+			 * The method then checks if the linked list is empty by calling the isEmpty()
+			 * method. If the list is empty, it means there are no existing nodes, so the
+			 * head of the list is assigned to the new node, making it the first and only
+			 * node in the list.
+			 */
 			head = newNode;
 		} else {
+			/*
+			 * If the list is not empty, it means there are existing nodes. In this case, a
+			 * reference to the head node is stored in the current variable for traversing
+			 * the list.
+			 */
 			Node current = head;
 			while (current.next != null) {
+				/*
+				 * A while loop is used to iterate through the list until the last node is
+				 * reached. The loop condition checks if the next field of the current node is
+				 * null, indicating that it is the last node in the list.
+				 */
 				current = current.next;
+				/*
+				 * Inside the loop, the current reference is updated to the next node in each
+				 * iteration, moving towards the end of the list.
+				 */
 			}
 			current.next = newNode;
+			System.out.println("dddd");
 		}
 	}
 

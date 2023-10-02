@@ -29,14 +29,17 @@ class Equipment {
 	}
 
 	public String toString() {
-		return "Name of the equipment : " + this.EquipmentName + "\nits Price : " + this.price;
+		return "Name of the equipment : " + this.EquipmentName + "\n& its Price : " + this.price;
 	}
 
 }
 
 class Money {
-	Mainequip price = new Mainequip();
+	
+	ShowpingCartLogic price = new ShowpingCartLogic();
+	
 	Scanner in = new Scanner(System.in);
+	
 	public int initial_money;
 	{
 		System.out.println("Enter initial money :");
@@ -48,7 +51,7 @@ class Money {
 	}
 }
 
-public class Mainequip {
+public class ShowpingCartLogic {
 
 	public static void main(String[] args) {
 		Money money = new Money();

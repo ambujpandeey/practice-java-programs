@@ -25,6 +25,7 @@ public class CollectionsDemo {
 		System.out.println("Reverse List " + studentList);
 		Collections.shuffle(studentList);
 		System.out.println("Shuffled List " + studentList);
+		
 		System.out.println("Checking occurance of Neeraj: "
 				+ Collections.frequency(studentList, "Neeraj"));
 	}
